@@ -9,3 +9,9 @@ Integrantes:
 - Martin Heib - RA 10734895 - Nickname: N17-R4M
 
 O grupo utilizou dados abertos de XXX
+
+O Roadmap do projeto se constitui de:
+- Planejamento
+- Pré-processamento e ingestão
+- Análise Exploratória e Limpeza
+- Aplicação de ML
