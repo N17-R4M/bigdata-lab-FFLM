@@ -8,7 +8,9 @@ Integrantes:
 - Lucas Oliveira - RA 10732279 - Nickname: lucaspoliveira1907-droid
 - Martin Heib - RA 10734895 - Nickname: N17-R4M
 
-O grupo utilizou dados abertos de XXX
+O grupo utilizou dados abertos do Instituto Nacional de Estudos e Pesquisas Educacionais (INEP) atravésdo portal de dados abertos do governo federal.
+
+Objetivo é analisar os dados para clasificar os alunos com base nas variáveis socio-econômicas dos inscritos.
 
 O Roadmap do projeto se constitui de:
 - Planejamento
