@@ -17,7 +17,7 @@ Objetivo é analisar os dados para clasificar os alunos com base nas variáveis 
 O projeto busca responder se o desempenho acadêmico no Brasil é um reflexo do mérito individual ou se pode ser explicado majoritariamente por variáveis estruturais, como a escolaridade dos pais, a renda familiar e o acesso a tecnologia.
 
 #### Roadmap do projeto:
--[x] Planejamento
--[] Pré-processamento e ingestão
--[] Análise Exploratória e Limpeza
--[] Aplicação de ML
+- [x] Planejamento
+- [] Pré-processamento e ingestão
+- [] Análise Exploratória e Limpeza
+- [] Aplicação de ML
