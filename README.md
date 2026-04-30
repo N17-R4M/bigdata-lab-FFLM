@@ -10,13 +10,13 @@ Projeto hands-on em bigdata e analytics do curso de MBA em Engenharia de Dados d
 - Martin Heib - RA 10734895 - Nickname: N17-R4M
 
 #### Sobre os dados:
-O grupo utilizou dados abertos do Instituto Nacional de Estudos e Pesquisas Educacionais (INEP) através do portal de dados abertos do governo federal.
-[Link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem)
-Dataset: Microdados do ENEM 2024
-Formato Original: Arquivos .csv
+O grupo utilizou dados abertos do Instituto Nacional de Estudos e Pesquisas Educacionais (INEP) através do portal de dados abertos do governo federal.     
+[Link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem)     
+Dataset: Microdados do ENEM 2024     
+Formato Original: Arquivos .csv     
 
 #### Objetivo principal:
-Objetivo é analisar os dados para clasificar os alunos com base nas variáveis socio-econômicas dos inscritos, construindo um modelo preditivo capaz de estimar a nota final de um candidato ou sua probabilidade de atingir uma "nota de corte" para cursos de alta concorrência, utilizando das variáveis socioeconômicas e do contexto escolar.
+Objetivo é analisar os dados para clasificar os alunos com base nas variáveis socio-econômicas dos inscritos, construindo um modelo preditivo capaz de estimar a nota final de um candidato ou sua probabilidade de atingir uma "nota de corte" para cursos de alta concorrência, utilizando das variáveis socioeconômicas e do contexto escolar.     
 O projeto busca responder se o desempenho acadêmico no Brasil é um reflexo do mérito individual ou se pode ser explicado majoritariamente por variáveis estruturais, como a escolaridade dos pais, a renda familiar e o acesso a tecnologia.
 
 #### Roadmap do projeto:
