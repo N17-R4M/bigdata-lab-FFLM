@@ -21,6 +21,6 @@ O projeto busca responder se o desempenho acadêmico no Brasil é um reflexo do 
 
 #### Roadmap do projeto:
 - [x] Planejamento
-- [] Pré-processamento e ingestão
-- [] Análise Exploratória e Limpeza
-- [] Aplicação de ML
+- [x] Pré-processamento e ingestão
+- [ ] Análise Exploratória e Limpeza
+- [ ] Aplicação de ML
