@@ -21,7 +21,7 @@ O ENEM atua como o principal mecanismo de acesso ao ensino superior no Brasil, m
 O projeto resolve essa questão ao aplicar o algoritmo K-Means para transformar dados multimensionais em grupos claros e interpretáveis. A classificação proposta permite superar a análise simplista de variáveis isoladas, criando perfis consolidados que revelam a real desigualdade entre os participantes
 
 #### Processo de Coleta:
-A solução proposta utiliza as bibliotecas requests para os dowload automatizado e zipfile para a manipulação dos arquivos, garantindo que o processo seja replicável sem intervenção manual. Dado o tamanho dos arquivos de 2024, a estratégia de leitura utiliza o processamento em blocos através da biblioteca pandas, que evita o estoura da memória RAM ao carregar apenas as colunas necessárias para o modelo de K-means.
+A solução proposta utiliza as bibliotecas requests para os dowload automatizado e zipfile para a manipulação dos arquivos, garantindo que o processo seja replicável sem intervenção manual.
 
 #### Critério de seleção de dados:
 Os dados foram selecionados diretamente do site do INEP, fonte oficial dos dados abertos do ENEM.
