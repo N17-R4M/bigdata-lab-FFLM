@@ -12,7 +12,7 @@ Projeto hands-on em bigdata e analytics do curso de MBA em Engenharia de Dados d
 #### Sobre os dados:
 O grupo utilizou dados abertos do Instituto Nacional de Estudos e Pesquisas Educacionais (INEP) através do portal de dados abertos do governo federal.     
 [Link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem)     
-Dataset: Microdados do ENEM 2024     
+Datasets: participantes.csv, resultados.csv      
 Formato Original: Arquivos .csv     
 
 #### Problema:
@@ -21,10 +21,13 @@ O ENEM atua como o principal mecanismo de acesso ao ensino superior no Brasil, m
 Embora o INEP forneça um grande volume de dados, essas informações aparecem de forma dispersa, tornando complexa a tarefa de identificar perfis específicos de alunos que compartilham as mesmas limitações sociais e econômicas, e identificar os impactos dessas variáveis em seu desempenho.
 
 #### Processo de Coleta:
-A solução proposta utiliza as bibliotecas requests para os dowload automatizado e zipfile para a manipulação dos arquivos, garantindo que o processo seja replicável sem intervenção manual.
+Começamos criando um clone do git no PC para manter os documentos do projeto juntos e instalando ferramentas de desenvolvimento no ambiente Linux
+Porém para isso (Linux Fedora), foi necessário criar um ambiente virtual na pasta para não causar conflitos com pip, já que precisaríamos que a biblioteca Polars pudesse ser importada corretamente.
+
+O processo detalhado de input de dados está descrito no documento `Ingestão dos Dados.md` na pasta docs.
 
 #### Critério de seleção de dados:
-Os dados foram selecionados diretamente do site do INEP, fonte oficial dos dados abertos do ENEM.
+Os dados foram selecionados diretamente do site do INEP, fonte oficial dos dados abertos do ENEM. Os datasets foram escolhidos porque queríamos bases com dataset alto volume de varíaveis para para que pudéssemos aplicar técnicas de exploração e limpeza.
 
 #### Roadmap do projeto:
 - [x] Planejamento
