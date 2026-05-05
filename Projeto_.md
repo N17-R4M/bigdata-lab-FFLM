@@ -16,9 +16,9 @@ Dataset: Microdados do ENEM 2024
 Formato Original: Arquivos .csv     
 
 #### Problema:
-O ENEM atua como o principal mecanismo de acesso ao ensino superior no Brasil, mas os seus resultados refletem as profundas desigualdades do país. O problema reside na dificuldade de mapear como variáveis socieconômicas, como renda familiar, histórico escolar e acesso a bens, se combinam para criar barreiras ao desempenho dos candidatos. Embora o INEP forneça um grande volume de dados, essas informações aparecem de forma dispersa, tornando complexa a tarefa de identificar perfis específicos de alunos que compartilham as mesmas limitação sociais e econômicas.
+O ENEM atua como o principal mecanismo de acesso ao ensino superior no Brasil, mas os seus resultados refletem as profundas desigualdades do país. O problema reside na dificuldade de mapear como variáveis socieconômicas, como renda familiar, histórico escolar e acesso a bens, e compreender como se combinam para criar barreiras ao desempenho dos candidatos. 
 
-O projeto resolve essa questão ao aplicar o algoritmo K-Means para transformar dados multimensionais em grupos claros e interpretáveis. A classificação proposta permite superar a análise simplista de variáveis isoladas, criando perfis consolidados que revelam a real desigualdade entre os participantes
+Embora o INEP forneça um grande volume de dados, essas informações aparecem de forma dispersa, tornando complexa a tarefa de identificar perfis específicos de alunos que compartilham as mesmas limitações sociais e econômicas, e identificar os impactos dessas variáveis em seu desempenho.
 
 #### Processo de Coleta:
 A solução proposta utiliza as bibliotecas requests para os dowload automatizado e zipfile para a manipulação dos arquivos, garantindo que o processo seja replicável sem intervenção manual.
