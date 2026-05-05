@@ -17,6 +17,7 @@ Formato Original: Arquivos .csv
 
 #### Problema:
 O ENEM atua como o principal mecanismo de acesso ao ensino superior no Brasil, mas os seus resultados refletem as profundas desigualdades do país. O problema reside na dificuldade de mapear como variáveis socieconômicas, como renda familiar, histórico escolar e acesso a bens, se combinam para criar barreiras ao desempenho dos candidatos. Embora o INEP forneça um grande volume de dados, essas informações aparecem de forma dispersa, tornando complexa a tarefa de identificar perfis específicos de alunos que compartilham as mesmas limitação sociais e econômicas.
+
 O projeto resolve essa questão ao aplicar o algoritmo K-Means para transformar dados multimensionais em grupos claros e interpretáveis. A classificação proposta permite superar a análise simplista de variáveis isoladas, criando perfis consolidados que revelam a real desigualdade entre os participantes
 
 #### Processo de Coleta:
