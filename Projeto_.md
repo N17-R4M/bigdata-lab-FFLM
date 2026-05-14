@@ -29,6 +29,9 @@ O processo detalhado de input de dados está descrito no documento `Ingestão do
 #### Critério de seleção de dados:
 Os dados foram selecionados diretamente do site do INEP, fonte oficial dos dados abertos do ENEM. Os datasets foram escolhidos porque queríamos bases com dataset alto volume de varíaveis para para que pudéssemos aplicar técnicas de exploração e limpeza.
 
+Link Mongo DB:
+mongodb+srv://lucaspoliveira1907:ProjetoMBA123@projetomba.pweru3q.mongodb.net/?appName=ProjetoMBA
+
 #### Roadmap do projeto:
 - [x] Planejamento
 - [x] Pré-processamento e ingestão
