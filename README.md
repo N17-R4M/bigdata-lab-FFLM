@@ -33,6 +33,16 @@ Link Mongo DB:
 mongodb+srv://lucaspoliveira1907:ProjetoMBA123@projetomba.pweru3q.mongodb.net/?appName=ProjetoMBA
 Senha: ProjetoMBA123
 
+#### Relato Machine Learning (Clusterização com K-means e K-medoids):
+
+Foi desenvolvido um pipeline analítico para investigar o impacto do contexto socioeconômico no desempenho dos estudantes, utilizando aprendizado não supervisionado para agrupar os municípios brasileiros. A construção desses perfis estruturais baseou-se em indicadores que traduzem a realidade local, abrangendo características como os níveis de exclusão digital, a proporção de alunos dependentes da rede pública, a taxa de abstenção nas provas e a média geral das notas.
+
+Para garantir a confiabilidade dos resultados e atestar a capacidade de generalização do modelo, a base de dados foi separada antes de iniciar a etapa de clusterização. O processo destinou 75% dos dados para o treinamento dos algoritmos e isolou os 25% restantes exclusivamente para a validação.
+
+A modelagem foi estruturada na aplicação e comparação de dois algoritmos: K-Means e K-Medoids. O trabalho iniciou com o K-Means, que, após a padronização dos dados e diversos testes iterativos, apontou que a divisão ideal da base seria em quatro clusters. Em seguida, o K-Medoids foi implementado como uma alternativa metodológica, utilizando instâncias reais da base para ancorar o centro de cada grupo. Essa escolha teve como objetivo testar se o modelo apresentaria uma maior resistência e precisão ao lidar com cidades de indicadores outliers.
+
+O desempenho da clusterização foi avaliado por métricas focadas na consistência e no isolamento dos grupos formados. Utilizou-se o Silhouette Score para medir se cada município estava bem alocado em seu respectivo cluster, complementado pelo Elbow, que checou o nível de dispersão interna e o distanciamento entre os agrupamentos. O estudo foi concluído com a geração de uma matriz comparativa utilizando os dados de teste.
+
 #### Roadmap do projeto:
 - [x] Planejamento
 - [x] Pré-processamento e ingestão
