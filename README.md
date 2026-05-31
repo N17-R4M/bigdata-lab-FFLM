@@ -29,10 +29,6 @@ O processo detalhado de input de dados está descrito no documento `Ingestão do
 #### Critério de seleção de dados:
 Os dados foram selecionados diretamente do site do INEP, fonte oficial dos dados abertos do ENEM. Os datasets foram escolhidos porque queríamos bases com dataset alto volume de varíaveis para para que pudéssemos aplicar técnicas de exploração e limpeza.
 
-Link Mongo DB:
-mongodb+srv://lucaspoliveira1907:ProjetoMBA123@projetomba.pweru3q.mongodb.net/?appName=ProjetoMBA
-Senha: ProjetoMBA123
-
 #### Relato Machine Learning (Clusterização com K-means e K-medoids):
 
 Foi desenvolvido um pipeline analítico para investigar o impacto do contexto socioeconômico no desempenho dos estudantes, utilizando aprendizado não supervisionado para agrupar os municípios brasileiros. A construção desses perfis estruturais baseou-se em indicadores que traduzem a realidade local, abrangendo características como os níveis de exclusão digital, a proporção de alunos dependentes da rede pública, a taxa de abstenção nas provas e a média geral das notas.
