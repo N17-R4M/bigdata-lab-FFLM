@@ -43,8 +43,84 @@ A modelagem foi estruturada na aplicação e comparação de dois algoritmos: K-
 
 O desempenho da clusterização foi avaliado por métricas focadas na consistência e no isolamento dos grupos formados. Utilizou-se o Silhouette Score para medir se cada município estava bem alocado em seu respectivo cluster, complementado pelo Elbow, que checou o nível de dispersão interna e o distanciamento entre os agrupamentos. O estudo foi concluído com a geração de uma matriz comparativa utilizando os dados de teste.
 
-#### Roadmap do projeto:
-- [x] Planejamento
-- [x] Pré-processamento e ingestão
-- [ ] Análise Exploratória e Limpeza
-- [ ] Aplicação de ML
+# Pipeline geral
+
+Este projeto implementa uma esteira completa de dados (ETL) baseada na Arquitetura Medalhão utilizando o ecossistema local com Docker, MongoDB, Polars, Pandas e VS Code. 
+
+O objetivo é extrair de forma resiliente os mais de 4,3 milhões de registros dos Microdados do ENEM 2024, processá-los de forma otimizada para restrição de memória RAM e aplicar algoritmos de aprendizado não-supervisionado (Clustering) para análise municipal.
+
+## Arquitetura e Fluxo do Pipeline     
+O ciclo de vida dos dados está dividido estritamente em três etapas através de notebooks modulares:
+
+### Camada Bronze (ingestao_bronze.ipynb):      
+Download multithread automatizado do portal de dados abertos do INEP, extração seletiva dos arquivos, conversão de encodamento (latin1 para utf-8 via iconv) e ingestão em lotes (batching) para o repositório NoSQL bruto.
+
+### Camada Silver (Analise_Exploratória.ipynb): 
+Leitura otimizada de coleções no MongoDB aplicando projeções estruturadas e técnicas de redução de consumo de memória (downcasting).      
+Realiza o tratamento de valores nulos, engenharia de atributos socioeconômicos e agrega os dados a nível municipal. O resultado limpo é persistido em um banco isolado.
+
+### Camada Gold / ML (ML_.ipynb):       
+Ingestão direta dos dados municipais consolidados e execução da esteira de Machine Learning. Realiza split estatístico de validação, normalização de escala e compara o agrupamento geo-educacional utilizando os algoritmos K-Means e K-Medoids.
+
+Estrutura do RepositórioPlaintextprojeto_enem/
+├── .venv/                  # Ambiente virtual Python (Ignorado no Git)
+├── data/                   # Diretório de armazenamento de dados (Ignorado no Git)
+│   └── raw/                # CSVs brutos extraídos do INEP
+├── .gitignore              # Regras de exclusão de arquivos para o Git
+├── docker-compose.yml      # Configuração de Infraestrutura como Código (IaC) do Banco NoSQL
+├── ingestao_bronze.ipynb   # Notebook de Ingestão e Carga Raw
+├── Analise_Exploratória.ipynb # Notebook de EDA, Limpeza e Carga Silver
+└── ML_.ipynb               # Notebook de Modelagem e Clustering (Machine Learning)
+
+## Pré-requisitos do Sistema     
+
+Antes de iniciar, certifique-se de possuir instalado:  
+- VS Code (com as extensões oficiais Python e Jupyter instaladas)
+- Docker e Docker Compose
+
+- Usuários Linux: Docker Engine e plugin do Compose nativos.
+
+- Usuários Windows: Docker Desktop configurado obrigatoriamente com o backend do WSL2 (Windows Subsystem for Linux) para permitir a execução nativa de comandos de terminal como o iconv.
+
+## Passo a Passo para Instalação e Execução
+
+1. Clonar o Repositório
+2. Configurar o Ambiente Virtual Python (.venv)     
+- Para garantir o isolamento das dependências de dados sem interferir nos pacotes globais do sistema, configure o ambiente virtual:
+- No Linux:     
+´´´ Bashpython3 -m venv .venv
+source .venv/bin/activate ´´´
+
+- No Windows (PowerShell):     
+´´´PowerShellpython -m venv .venv
+.\.venv\Scripts\Activate.ps1 ´´´
+
+- Com o ambiente ativado (.venv), atualize o gerenciador de pacotes e instale as dependências:     
+´´´Bashpip install --upgrade pip ´´´
+´´´pip install pymongo polars requests pandas numpy matplotlib seaborn scikit-learn scikit-learn-extra´´´
+
+3. Subir a Infraestrutura do Banco de Dados (Docker)
+- O repositório contém a definição de Infraestrutura como Código (docker-compose.yml). Para provisionar a instância local do MongoDB pré-configurada com credenciais administrativas e persistência em volume separado, execute:
+´´´ Bashdocker compose up -d ´´´
+
+4. Execução do Pipeline no VS Code     
+- Abra a pasta do projeto no VS Code:
+- Abra o arquivo ingestao_bronze.ipynb.
+- No canto superior direito do VS Code, clique em Select Kernel $\rightarrow$ Python Environments e aponte estritamente para o interpretador contido dentro da pasta ./.venv/bin/python.
+
+- Siga a ordem sequencial estrita de execução dos arquivos:
+- Passo 1: ingestao_bronze.ipynb     
+  O que faz: Realiza o download do arquivo compactado do INEP e extrai os arquivos PARTICIPANTES_2024.csv e RESULTADOS_2024.csv. Em seguida, utiliza o utilitário nativo de sistema iconv para recodificar os arquivos para UTF-8 e faz a carga em lotes de 50.000 linhas na base enem_bronze do seu Docker.     
+  Validação: Ao finalizar, o log exibirá o progresso completo até a marca de 4.332.944 de registros inseridos com sucesso.
+- Passo 2: Analise_Exploratória.ipynb     
+  O que faz: Conecta à camada bruta. Aplica projeções em nível de banco de dados para buscar apenas as colunas selecionadas no escopo do projeto, evitando o estouro de memória RAM.
+  Otimização de Engenharia: Transforma colunas de strings redundantes em tipos category e reduz o peso das notas numéricas de float64 para float32. Consolida e agrupa os dados socioeconômicos e de desempenho por município e salva a base tratada no banco de dados isolado enem_silver.
+- Passo 3: ML_.ipynb     
+  O que faz: Puxa a base consolidada de municípios da camada Silver (uma carga leve de aproximadamente 5.500 linhas). Executa a análise de hiperparâmetros para encontrar o número ideal de agrupamentos ($K=4$) e treina os modelos K-Means e K-Medoids, comparando a eficácia matemática por meio das métricas de Silhouette Score e Davies-Bouldin.
+
+  ## Detalhes de Credenciais e Segurança     
+  As credenciais configuradas na infraestrutura do container e pré-mapeadas nas strings de conexões internas dos scripts são:
+  - Banco de Dados: MongoDB (Porta padrão 27017)
+  - Usuário Admin: admin
+  - Senha Admin: ProjetoMBA123
+  - String de Conexão Local: mongodb://admin:ProjetoMBA123@localhost:27017/?authSource=admin
