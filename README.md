@@ -84,20 +84,20 @@ Antes de iniciar, certifique-se de possuir instalado:
 2. Configurar o Ambiente Virtual Python (.venv)     
 - Para garantir o isolamento das dependências de dados sem interferir nos pacotes globais do sistema, configure o ambiente virtual:
 - No Linux:     
-`Bashpython3 -m venv .venv
+`Bash python3 -m venv .venv
 source .venv/bin/activate`
 
 - No Windows (PowerShell):     
-`PowerShellpython -m venv .venv
+`PowerShell python -m venv .venv
 .\.venv\Scripts\Activate.ps1`
 
 - Com o ambiente ativado (.venv), atualize o gerenciador de pacotes e instale as dependências:     
-`Bashpip install --upgrade pip`     
+`Bash pip install --upgrade pip`     
 `pip install pymongo polars requests pandas numpy matplotlib seaborn scikit-learn scikit-learn-extra`
 
 3. Subir a Infraestrutura do Banco de Dados (Docker)
 - O repositório contém a definição de Infraestrutura como Código (docker-compose.yml). Para provisionar a instância local do MongoDB pré-configurada com credenciais administrativas e persistência em volume separado, execute:
-`Bashdocker compose up -d`
+`Bash docker compose up -d`
 
 4. Execução do Pipeline no VS Code     
 - Abra a pasta do projeto no VS Code:
