@@ -62,15 +62,15 @@ Realiza o tratamento de valores nulos, engenharia de atributos socioeconômicos 
 ### Camada Gold / ML (ML_.ipynb):       
 Ingestão direta dos dados municipais consolidados e execução da esteira de Machine Learning. Realiza split estatístico de validação, normalização de escala e compara o agrupamento geo-educacional utilizando os algoritmos K-Means e K-Medoids.
 
-Estrutura do RepositórioPlaintextprojeto_enem/
-├── .venv/                  # Ambiente virtual Python (Ignorado no Git)
-├── data/                   # Diretório de armazenamento de dados (Ignorado no Git)
-│   └── raw/                # CSVs brutos extraídos do INEP
-├── .gitignore              # Regras de exclusão de arquivos para o Git
-├── docker-compose.yml      # Configuração de Infraestrutura como Código (IaC) do Banco NoSQL
-├── ingestao_bronze.ipynb   # Notebook de Ingestão e Carga Raw
-├── Analise_Exploratória.ipynb # Notebook de EDA, Limpeza e Carga Silver
-└── ML_.ipynb               # Notebook de Modelagem e Clustering (Machine Learning)
+Estrutura do RepositórioPlaintextprojeto_enem/     
+├── .venv/                  # Ambiente virtual Python (Ignorado no Git)     
+├── data/                   # Diretório de armazenamento de dados (Ignorado no Git)     
+│   └── raw/                # CSVs brutos extraídos do INEP     
+├── .gitignore              # Regras de exclusão de arquivos para o Git     
+├── docker-compose.yml      # Configuração de Infraestrutura como Código (IaC) do Banco NoSQL     
+├── ingestao_bronze.ipynb   # Notebook de Ingestão e Carga Raw     
+├── Analise_Exploratória.ipynb # Notebook de EDA, Limpeza e Carga Silver     
+└── ML_.ipynb               # Notebook de Modelagem e Clustering (Machine Learning)     
 
 ## Pré-requisitos do Sistema     
 
@@ -88,20 +88,20 @@ Antes de iniciar, certifique-se de possuir instalado:
 2. Configurar o Ambiente Virtual Python (.venv)     
 - Para garantir o isolamento das dependências de dados sem interferir nos pacotes globais do sistema, configure o ambiente virtual:
 - No Linux:     
-´ Bashpython3 -m venv .venv
-source .venv/bin/activate ´
+`Bashpython3 -m venv .venv
+source .venv/bin/activate`
 
 - No Windows (PowerShell):     
-´PowerShellpython -m venv .venv
-.\.venv\Scripts\Activate.ps1 ´
+`PowerShellpython -m venv .venv
+.\.venv\Scripts\Activate.ps1`
 
 - Com o ambiente ativado (.venv), atualize o gerenciador de pacotes e instale as dependências:     
-´Bashpip install --upgrade pip ´
-´pip install pymongo polars requests pandas numpy matplotlib seaborn scikit-learn scikit-learn-extra´
+`Bashpip install --upgrade pip`     
+`pip install pymongo polars requests pandas numpy matplotlib seaborn scikit-learn scikit-learn-extra`
 
 3. Subir a Infraestrutura do Banco de Dados (Docker)
 - O repositório contém a definição de Infraestrutura como Código (docker-compose.yml). Para provisionar a instância local do MongoDB pré-configurada com credenciais administrativas e persistência em volume separado, execute:
-´ Bashdocker compose up -d ´
+`Bashdocker compose up -d`
 
 4. Execução do Pipeline no VS Code     
 - Abra a pasta do projeto no VS Code:
